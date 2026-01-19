@@ -1,0 +1,1069 @@
+/* ===========================
+   БАЗОВЫЕ СТИЛИ И СБРОС
+   =========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+img {
+    
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* ===========================
+   ЦВЕТОВЫЕ ПЕРЕМЕННЫЕ
+   =========================== */
+
+.page--dark-theme {
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #e9ecef;
+    --text-primary: #1a1a2e;
+    --text-secondary: #495057;
+    --text-muted: #6c757d;
+    --accent-primary: #6C63FF;
+    --accent-secondary: #00D9FF;
+    --accent-tertiary: #FF6584;
+    --border-color: #dee2e6;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --card-bg: #ffffff;
+    --input-bg: #f8f9fa;
+}
+
+
+/* ===========================
+   ОБЩИЕ СТИЛИ СТРАНИЦЫ
+   =========================== */
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===========================
+   КОНТЕЙНЕРЫ
+   =========================== */
+
+.header__container,
+.slider__container,
+.search__container,
+.advantages__container,
+.popular__container,
+.partners__container,
+.footer__container,
+.auth__container,
+.profile__container,
+.catalog__container,
+.admin__container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===========================
+   HEADER (ШАПКА)
+   =========================== */
+
+.header {
+    background-color: var(--bg-secondary);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Логотип */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #59acff;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+
+
+
+
+.enter_but{
+     color: #59acff;
+    font-size: 24px;
+    font-weight: 700;
+    align-items: center;
+    margin-right: 10px;
+    
+}
+
+
+
+/* Навигация */
+.nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background-color: var(--bg-secondary);
+    padding: 80px 30px 30px;
+    box-shadow: -2px 0 10px var(--shadow);
+    transition: right 0.3s ease;
+    z-index: 999;
+}
+
+.nav--open {
+    right: 0;
+}
+
+.nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav__link {
+    display: block;
+    padding: 12px 16px;
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav__link:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--accent-secondary);
+}
+
+.nav__link--button {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: #59acff;
+    text-align: center;
+}
+
+.nav__link--button:hover {
+    opacity: 0.9;
+    color: #59acff;
+}
+
+.nav__link--active {
+    background-color: var(--bg-tertiary);
+    color: var(--accent-secondary);
+}
+
+/* ===========================
+   MAIN (ОСНОВНОЙ КОНТЕНТ)
+   =========================== */
+
+.main {
+    flex: 1;
+}
+
+/* Заголовки секций */
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+/* ===========================
+   СЛАЙДЕР
+   =========================== */
+
+.slider {
+    padding: 40px 0;
+}
+
+.slider__wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: var(--bg-secondary);
+    box-shadow: 0 4px 20px var(--shadow);
+}
+
+.slider__track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    display: none;
+}
+
+.slide--active {
+    display: block;
+}
+
+.slide__image-wrapper {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.slide__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide__content {
+    padding: 10px;
+    text-align: center;
+}
+
+.slide__name {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+}
+
+.slide__price {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--accent-secondary);
+    margin-bottom: 11px;
+}
+
+/* Кнопки навигации слайдера */
+.slider__button {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(126, 109, 109, 0.387);
+    color: white;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.slider__button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.slider__button--prev {
+    left: 20px;
+}
+
+.slider__button--next {
+    right: 20px;
+}
+
+/* ===========================
+   ПОИСК
+   =========================== */
+
+.search {
+    padding: 60px 0;
+    background-color: var(--bg-secondary);
+}
+
+.search__form {
+    display: flex;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search__input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search__input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+.search__input::placeholder {
+    color: var(--text-muted);
+}
+
+/* ===========================
+   КНОПКИ
+   =========================== */
+
+.button {
+    padding: 12px 28px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.4);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+.button--primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+}
+
+/* ===========================
+   ПРЕИМУЩЕСТВА
+   =========================== */
+
+.advantages {
+    padding: 60px 0;
+}
+
+.advantages__list {
+    display: grid;
+    gap: 30px;
+}
+
+.advantage {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+
+}
+
+.advantage__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.advantage__text {
+    color: var(--text-secondary);
+}
+
+/* ===========================
+   ПОПУЛЯРНЫЕ ИГРЫ И КАТАЛОГ
+   =========================== */
+
+.popular,
+.catalog {
+    padding: 60px 0;
+}
+
+.popular__grid,
+.catalog__games {
+    display: grid;
+    gap: 30px;
+}
+
+.game-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px var(--shadow);
+}
+
+.game-card__link {
+    display: block;
+    color: inherit;
+}
+
+.game-card__image-wrapper {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.game-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background-image 0.5s ease;
+}
+
+
+
+.game-card__content {
+    padding: 20px;
+}
+
+.game-card__name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.game-card__genre,
+.game-card__developer {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.game-card__rating {
+    margin: 10px 0;
+}
+
+.rating__star {
+    font-size: 18px;
+    color: var(--text-muted);
+}
+
+.rating__star--filled {
+    color: #ffd700;
+}
+
+.game-card__price {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent-secondary);
+    margin: 15px 0;
+}
+
+.game-card__button {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* ===========================
+   ПАРТНЕРЫ
+   =========================== */
+
+.partners {
+    padding: 80px 0;
+    
+    
+}
+
+.partners__grid{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.partners__item {
+    
+    width: 200px;
+    height: 110px;    
+   
+}
+
+
+.image_partners_place{
+    display: flex;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.partners_text{
+    text-align: center;
+}
+
+/* ===========================
+   FOOTER (ПОДВАЛ)
+   =========================== */
+
+.footer {
+    background-color: var(--bg-secondary);
+    padding: 40px 0 20px;
+    margin-top: auto;
+    border-top: 2px solid var(--border-color);
+}
+
+.footer__grid {
+    gap: 100px;
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.footer__title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer__link {
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+    color: var(--accent-secondary);
+}
+
+.footer__bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer__copyright {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* ===========================
+   ФОРМЫ (AUTH)
+   =========================== */
+
+.auth {
+    padding: 60px 0;
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+}
+
+.auth__wrapper {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px var(--shadow);
+}
+
+.auth__title {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--text-primary);
+}
+
+.form__group {
+    margin-bottom: 20px;
+}
+
+.form__row {
+    display: grid;
+    gap: 15px;
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.form__input,
+.form__select,
+.form__textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form__input:focus,
+.form__select:focus,
+.form__textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+.form__textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form__checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.form__checkbox-input {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.form__checkbox-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.form__button {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.form__link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: var(--accent-secondary);
+    transition: opacity 0.3s ease;
+}
+
+.form__link:hover {
+    opacity: 0.8;
+}
+
+.form__link--inline {
+    display: inline;
+}
+
+.form__text {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--text-secondary);
+}
+
+/* Файловый инпут */
+.form__file-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form__file-input {
+    display: none;
+}
+
+.form__file-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form__file-label:hover {
+    border-color: var(--accent-primary);
+    background-color: var(--bg-tertiary);
+}
+
+.form__file-name {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* ===========================
+   ЛИЧНЫЙ КАБИНЕТ (PROFILE)
+   =========================== */
+
+.profile {
+    padding: 60px 0;
+}
+
+.profile__title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--text-primary);
+}
+
+.profile__grid {
+    display: grid;
+    gap: 30px;
+}
+
+.profile__section {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.profile-info__title,
+.profile-history__title,
+.profile-settings__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.profile-info__item {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-info__item:last-child {
+    border-bottom: none;
+}
+
+.profile-info__label {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.profile-info__value {
+    color: var(--text-primary);
+}
+
+/* История покупок - таблица */
+.profile-history__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.profile-history__table th {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 2px solid var(--border-color);
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.profile-history__table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+/* История покупок - мобильная версия */
+.profile-history__mobile {
+    display: none;
+}
+
+.profile-history__card {
+    background-color: var(--bg-tertiary);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.profile-history__card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.profile-history__date {
+    color: var(--text-muted);
+}
+
+.profile-history__price {
+    color: var(--accent-secondary);
+    font-weight: 700;
+}
+
+.profile-history__name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Настройки профиля */
+.profile-settings__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-settings__button {
+    max-width: 250px;
+}
+
+.profile-settings__theme {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile-settings__theme-label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.theme-switcher {
+    display: flex;
+    gap: 10px;
+}
+
+.theme-switcher__button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.theme-switcher__button:hover {
+    border-color: var(--accent-primary);
+}
+
+.theme-switcher__button--active {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-color: var(--accent-primary);
+    color: white;
+}
+
+/* ===========================
+   КАТАЛОГ
+   =========================== */
+
+.catalog__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.catalog__title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.filter_but{
+    color: #e9ecef;
+    background-color: #184173;
+    height: 60px;
+    width: 200px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 100px;
+    transition: transform 0.3s ease;
+}
+
+.filter_but:hover{
+    transform: scale(1.1);
+}
+
+.catalog__content {
+    display: grid;
+    gap: 30px;
+}
+
+
+
+/* ===========================
+   АДМИНИСТРАТИВНАЯ ПАНЕЛЬ
+   =========================== */
+
+.admin {
+    padding: 60px 0;
+}
+
+.admin__title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.admin__subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+.admin__content {
+    display: grid;
+    gap: 40px;
+}
+
+.admin__form {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.form__actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.form__actions .form__button {
+    width: auto;
+    flex: 1;
+}
+
+/* Список игр в админке */
+.admin__games {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.admin__games-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.admin__games-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.admin__game-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--bg-tertiary);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.admin__game-item:hover {
+    background-color: var(--bg-primary);
+}
+
+.admin__game-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.admin__game-details {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.admin__game-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.admin__game-button {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.admin__game-button--edit {
+    background-color: var(--accent-primary);
+    color: white;
+}
+
+.admin__game-button--edit:hover {
+    background-color: var(--accent-secondary);
+}
+
+.admin__game-button--delete {
+    background-color: var(--accent-tertiary);
+    color: white;
+}
+

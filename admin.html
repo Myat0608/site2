@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Административная панель - BestGames</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page page--dark-theme">
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="header__container">
+            <a href="index.html" class="header__logo logo">
+           <img class="logo__image" src="img/BG_logo.png" alt="logo" width="70px" height="70px">
+                <span class="logo__text">BestGames</span>
+            </a>
+
+            <button class="header__burger burger" type="button" aria-label="Открыть меню">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+
+            <nav class="header__nav nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html#search" class="nav__link">Поиск</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="catalog.html" class="nav__link">Каталог игр</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="profile.html" class="nav__link">Личный кабинет</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="login.html" class="nav__link nav__link--button">Выйти</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="admin">
+            <div class="admin__container">
+                <h1 class="admin__title">Административная панель</h1>
+                <p class="admin__subtitle">Добавление новой игры</p>
+
+                <div class="admin__content">
+                    <form class="admin__form form" action="#" method="post" enctype="multipart/form-data">
+                        <div class="form__group">
+                            <label for="game-name" class="form__label">Название игры *</label>
+                            <input 
+                                type="text" 
+                                id="game-name" 
+                                name="game-name" 
+                                class="form__input" 
+                                placeholder="Введите название игры"
+                                required
+                            >
+                        </div>
+
+                        <div class="form__group">
+                            <label for="game-genre" class="form__label">Жанр *</label>
+                            <select 
+                                id="game-genre" 
+                                name="game-genre" 
+                                class="form__select"
+                                required
+                            >
+                                <option value="">Выберите жанр</option>
+                                <option value="action">Action</option>
+                                <option value="rpg">RPG</option>
+                                <option value="adventure">Adventure</option>
+                                <option value="strategy">Strategy</option>
+                                <option value="shooter">Shooter</option>
+                                <option value="horror">Horror</option>
+                                <option value="racing">Racing</option>
+                                <option value="sports">Sports</option>
+                                <option value="simulation">Simulation</option>
+                                <option value="puzzle">Puzzle</option>
+                            </select>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="game-image" class="form__label">Изображение игры *</label>
+                            <div class="form__file-wrapper">
+                                <input 
+                                    type="file" 
+                                    id="game-image" 
+                                    name="game-image" 
+                                    class="form__file-input"
+                                    accept="image/*"
+                                    required
+                                >
+                                <label for="game-image" class="form__file-label">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="17 8 12 3 7 8"/>
+                                        <line x1="12" y1="3" x2="12" y2="15"/>
+                                    </svg>
+                                    <span>Выберите файл</span>
+                                </label>
+                                <span class="form__file-name">Файл не выбран</span>
+                            </div>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="game-developer" class="form__label">Компания-разработчик *</label>
+                            <input 
+                                type="text" 
+                                id="game-developer" 
+                                name="game-developer" 
+                                class="form__input" 
+                                placeholder="Название компании"
+                                required
+                            >
+                        </div>
+
+                        <div class="form__group">
+                            <label for="game-description" class="form__label">Описание *</label>
+                            <textarea 
+                                id="game-description" 
+                                name="game-description" 
+                                class="form__textarea" 
+                                placeholder="Подробное описание игры"
+                                rows="6"
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="game-price" class="form__label">Стоимость (₽) *</label>
+                            <input 
+                                type="number" 
+                                id="game-price" 
+                                name="game-price" 
+                                class="form__input" 
+                                placeholder="Введите цену"
+                                min="0"
+                                step="1"
+                                required
+                            >
+                        </div>
+
+                        <div class="form__group">
+                            <label for="game-rating" class="form__label">Рейтинг *</label>
+                            <select 
+                                id="game-rating" 
+                                name="game-rating" 
+                                class="form__select"
+                                required
+                            >
+                                <option value="">Выберите рейтинг</option>
+                                <option value="5">★★★★★ (5 звезд)</option>
+                                <option value="4">★★★★☆ (4 звезды)</option>
+                                <option value="3">★★★☆☆ (3 звезды)</option>
+                                <option value="2">★★☆☆☆ (2 звезды)</option>
+                                <option value="1">★☆☆☆☆ (1 звезда)</option>
+                            </select>
+                        </div>
+
+                        <div class="form__actions">
+                            <button type="submit" class="form__button button button--primary">
+                                Добавить игру
+                            </button>
+                            <button type="reset" class="form__button button">
+                                Очистить форму
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Список добавленных игр -->
+                    <div class="admin__games">
+                        <h2 class="admin__games-title">Последние добавленные игры</h2>
+                        <div class="admin__games-list">
+                            <div class="admin__game-item">
+                                <div class="admin__game-info">
+                                    <h3 class="admin__game-name">Cyberpunk 2077</h3>
+                                    <p class="admin__game-details">Action, RPG | CD Projekt Red | 1999 ₽</p>
+                                </div>
+                                <div class="admin__game-actions">
+                                    <button class="admin__game-button admin__game-button--edit" title="Редактировать">
+                                        ✎
+                                    </button>
+                                    <button class="admin__game-button admin__game-button--delete" title="Удалить">
+                                        ✕
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="admin__game-item">
+                                <div class="admin__game-info">
+                                    <h3 class="admin__game-name">Elden Ring</h3>
+                                    <p class="admin__game-details">Action, RPG | FromSoftware | 2499 ₽</p>
+                                </div>
+                                <div class="admin__game-actions">
+                                    <button class="admin__game-button admin__game-button--edit" title="Редактировать">
+                                        ✎
+                                    </button>
+                                    <button class="admin__game-button admin__game-button--delete" title="Удалить">
+                                        ✕
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="admin__game-item">
+                                <div class="admin__game-info">
+                                    <h3 class="admin__game-name">Baldur's Gate 3</h3>
+                                    <p class="admin__game-details">RPG | Larian Studios | 2199 ₽</p>
+                                </div>
+                                <div class="admin__game-actions">
+                                    <button class="admin__game-button admin__game-button--edit" title="Редактировать">
+                                        ✎
+                                    </button>
+                                    <button class="admin__game-button admin__game-button--delete" title="Удалить">
+                                        ✕
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__grid">
+                <div class="footer__column">
+                    <h3 class="footer__title">Контакты</h3>
+                    <ul class="footer__list">
+                        <li class="footer__item">
+                            <a href="tel:88009995599" class="footer__link">8-800-999-55-99</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="mailto:best@games.ru" class="footer__link">best@games.ru</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Информация</h3>
+                    <ul class="footer__list">
+                        <li class="footer__item">
+                            <a href="#" class="footer__link">Клиентам</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="#" class="footer__link">Партнерам</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="#" class="footer__link">О нас</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="#" class="footer__link">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Навигация</h3>
+                    <ul class="footer__list">
+                        <li class="footer__item">
+                            <a href="index.html" class="footer__link">Главная</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="register.html" class="footer__link">Регистрация</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="login.html" class="footer__link">Авторизация</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="profile.html" class="footer__link">Личный кабинет</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="index.html#search" class="footer__link">Поиск</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2024 BestGames. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
